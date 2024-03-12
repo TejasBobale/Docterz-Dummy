@@ -6,14 +6,18 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingBottom="100dp"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:scaleType="fitXY"
         android:src="@drawable/baseline_person_pin_24"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,11 +26,11 @@
         android:layout_width="106dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="#3498DB"
         android:text="Create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/imagePicker"

@@ -9,7 +9,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var imageView: ImageView
+    lateinit var image: ImageView
     lateinit var btnCreate: Button
     lateinit var btnImagePicker: FloatingActionButton
 
@@ -18,13 +18,32 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnCreate = findViewById(R.id.create)
-
-        imageView = findViewById(R.id.image)
+        btnImagePicker = findViewById(R.id.imagePicker)
+        
 
 
         btnCreate.setOnClickListener {
             val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
+        }
+        btnImagePicker.setOnClickListener{
+            image = findViewById(R.id.image)
+            uploadImage(image)
+        }
+    }
+
+    private fun uploadImage(image: ImageView?) {
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+
+        startActivityForResult(intent, 1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 1){
+            image.setImageURI(data?.data)
         }
     }
 }
