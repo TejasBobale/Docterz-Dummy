@@ -1,8 +1,10 @@
 package com.example.dummyapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.widget.Button
 import android.widget.ImageView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -12,6 +14,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var image: ImageView
     lateinit var btnCreate: Button
     lateinit var btnImagePicker: FloatingActionButton
+    val storedImage = Intent()
+    var uri: Intent? = null
+    var docterName: String = "Prathamesh"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +28,11 @@ class MainActivity : AppCompatActivity() {
 
 
         btnCreate.setOnClickListener {
-            val intent = Intent(this, Dashboard::class.java)
-            startActivity(intent)
+            val intent = Intent(this, Dashboard::class.java).also {
+                it.putExtra("app_logo", uri)
+                it.putExtra("docter_name",docterName)
+                startActivity(it)
+            }
         }
         btnImagePicker.setOnClickListener{
             image = findViewById(R.id.image)
@@ -32,17 +40,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun uploadImage(image: ImageView?) {
-        val intent = Intent()
-        intent.action = Intent.ACTION_GET_CONTENT
-        intent.type = "image/*"
-
-        startActivityForResult(intent, 1)
+     fun uploadImage(image: ImageView?) {
+        storedImage.action = Intent.ACTION_GET_CONTENT
+        storedImage.type = "image/*"
+         startActivityForResult(storedImage, 1)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 1){
+        if(requestCode == 1 ){
+            uri = data
             image.setImageURI(data?.data)
         }
     }
