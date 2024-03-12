@@ -1,4 +1,4 @@
-package com.example.docterzdummy
+package com.example.dummyapp
 
 import org.junit.Test
 
