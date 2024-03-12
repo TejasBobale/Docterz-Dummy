@@ -10,8 +10,7 @@ import android.widget.TextView
 import java.net.URI
 
 class Dashboard : AppCompatActivity() {
-    lateinit var logo: ImageView
-    lateinit var docter: TextView
+    //lateinit var logo: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -23,21 +22,21 @@ class Dashboard : AppCompatActivity() {
 //            startActivity(intent)
 //        }
 
-        logo = findViewById(R.id.appLogo)
-        docter = findViewById(R.id.docterName)
+//        var logo = findViewById<ImageView>(R.id.appLogo)
+        var doctername = findViewById<TextView>(R.id.doctername)
+        var docterprofession = findViewById<TextView>(R.id.docterprofession)
+//        var docterdegree = findViewById<TextView>(R.id.docterdegree)
+//
         var received = intent
 
-        docter.text = received.getStringExtra("docter_name")
-
-        var imageUri = received.data
-        if (imageUri != null){
-            Glide
-        }
+        doctername.text = received.getStringExtra("docter_name") ?: "Doctor Name"
+        docterprofession.text = received.getStringExtra("docter_profession") ?: "Doctor Profession"
+//        docterdegree.text = received.getStringExtra("docter_degree") ?: "Doctor Degree"
 
 
-
-
-
+//        received.data?.let { uri ->
+//            logo.setImageURI(uri)
+//        }
     }
 
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
