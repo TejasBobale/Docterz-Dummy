@@ -25,13 +25,13 @@ class Dashboard : AppCompatActivity() {
 //        var logo = findViewById<ImageView>(R.id.appLogo)
         var doctername = findViewById<TextView>(R.id.doctername)
         var docterprofession = findViewById<TextView>(R.id.docterprofession)
-//        var docterdegree = findViewById<TextView>(R.id.docterdegree)
+        var docterdegree = findViewById<TextView>(R.id.docterdegree)
 //
         var received = intent
 
         doctername.text = received.getStringExtra("docter_name") ?: "Doctor Name"
         docterprofession.text = received.getStringExtra("docter_profession") ?: "Doctor Profession"
-//        docterdegree.text = received.getStringExtra("docter_degree") ?: "Doctor Degree"
+        docterdegree.text = received.getStringExtra("docter_degree") ?: "Doctor Degree"
 
 
 //        received.data?.let { uri ->

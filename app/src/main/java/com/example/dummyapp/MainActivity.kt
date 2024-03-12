@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         var name = findViewById<EditText>(R.id.docterName)
         var profession = findViewById<EditText>(R.id.docterProfession)
-//        var degree = findViewById<EditText>(R.id.docterDegree)
+        var degree = findViewById<EditText>(R.id.docterDegree)
 
         btnCreate = findViewById(R.id.create)
         btnImagePicker = findViewById(R.id.imagePicker)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 it.putExtra("app_logo", uri)
                 it.putExtra("docter_name",name.text.toString())
                 it.putExtra("docter_profession",profession.text.toString())
-//                it.putExtra("docter_degree",degree.text.toString())
+                it.putExtra("docter_degree",degree.text.toString())
 
                 startActivity(it)
             }

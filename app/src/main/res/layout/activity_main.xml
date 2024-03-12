@@ -63,7 +63,6 @@
         android:id="@+id/docterProfessionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="horizontal"
         android:padding="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,10 +83,9 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/docterDegree"
+        android:id="@+id/docterDegreeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="horizontal"
         android:padding="20dp"
         app:layout_constraintStart_toStartOf="parent"
