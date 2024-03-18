@@ -29,9 +29,10 @@ class Dashboard : AppCompatActivity() {
 //
         var received = intent
 
-        doctername.text = received.getStringExtra("docter_name") ?: "Doctor Name"
-        docterprofession.text = received.getStringExtra("docter_profession") ?: "Doctor Profession"
-        docterdegree.text = received.getStringExtra("docter_degree") ?: "Doctor Degree"
+        //doctername.text = (received.getStringExtra("docter_name") == "") ? "Doctor Name" : received.getStringExtra("docter_name")
+        doctername.text = if (received.getStringExtra("docter_name").equals("")) "Doctor Name" else received.getStringExtra("docter_name")
+        docterprofession.text = if (received.getStringExtra("docter_profession").equals("")) "Doctor Profession" else received.getStringExtra("docter_profession")
+        docterdegree.text = if (received.getStringExtra("docter_degree").equals("")) "Doctor Degree" else received.getStringExtra("docter_degree")
 
 
 //        received.data?.let { uri ->
